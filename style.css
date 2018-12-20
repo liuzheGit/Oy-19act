@@ -1,0 +1,224 @@
+*{box-sizing:border-box;margin:0;padding:0;list-style:none}
+body,html{width:100%}
+body{font-size:12px;}
+img{
+  display: block;
+}
+*,*::after,*::before{
+  box-sizing: border-box;
+}
+
+.main{
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.main-top{
+  background: url("./images/bg.png") no-repeat;
+  background-size: 100%;
+  padding: 0 10px;
+}
+.main-top > div{
+  position: relative;
+}
+.main-top .title-wrap{
+  width: 2rem;
+  position: absolute;
+}
+
+.title-wrap img{
+  width: 100%;
+}
+
+.main-top .top-banner{
+  height: 4rem;
+  margin-bottom: 2.5rem;
+}
+
+.main-top .main-one{
+  height: 9.6rem;
+  border: 1px solid #000;
+  background: url("./images/one-bg.png") no-repeat;
+  background-size: 100% 100%;
+  padding: 12px;
+}
+/*砸金蛋主题*/
+.main-one .times-hint{
+  padding-left: .4em;
+  font-size: .36rem;
+  letter-spacing: 4px;
+}
+.times-hint .red-times{
+  color: #E33533;
+}
+
+.main-one .egg-main{
+  height: 38%;
+  border: 1px solid green;
+}
+
+.prize-setting img{
+  width: 100%;
+}
+.main-one .explain-title{
+  color: #E44338;
+  font-size: .4rem;
+  margin-top: 10px;
+}
+.explain-title span{
+  margin-right: .6em;
+}
+
+.explain-words{
+  color: #CF8300;
+}
+
+.explain-words p{
+  margin-left: 10px;
+  position: relative;
+}
+
+.explain-words p::before{
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border: 1px solid red;
+  border-radius: 50%;
+  position: absolute;
+  left: -8px;
+  top: 5px;
+}
+
+
+/*活动1结束*/
+.main .main-two{
+  height: 3rem;
+  background: url("./images/two-bg.png") no-repeat;
+  background-size: 100% 100%;
+  margin-top: 1.6rem;
+  padding: 12px;
+}
+
+.main-two .explain2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.explain2 .explain2-words{
+  flex: 2.5;
+}
+.explain2-words h3{
+  text-align: center;
+  font-size: 16px;
+  color: #E44539;
+  margin: 10px 0 6px;
+}
+
+.explain2-words p{
+  color: #CF8300;
+  line-height: 1.6;
+}
+
+.explain2 .explain2-img{
+  flex: 1;
+}
+.explain2-img img{
+  width: 100%;
+}
+
+.main .main-three{
+  height: 6rem;
+  background: url("./images/one-bg.png") no-repeat;
+  background-size: 100%;
+  margin-top: 1.6rem;
+  padding: 12px;
+  position: relative;
+}
+.main-three .explain3{
+  color: #CF8300;
+}
+.main-three .explain3-img{
+  width: 2.2rem;
+  position: absolute;
+  left: 6px;
+  top: 6px;
+}
+
+.explain3-img img{
+  width: 100%;
+}
+
+.explain3 h3{
+  margin: 20px 0 2px;
+  font-size: 16px;
+  color: #E44539;
+  text-align: center;
+}
+
+.explain3>p{
+  text-align: center;
+}
+
+.explain3 .explain3-words{
+  margin-top: 20px;
+}
+
+.explain3-words p{
+  margin-left: 10px;
+  position: relative;
+}
+.explain3-words p::before{
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border: 1px solid red;
+  border-radius: 50%;
+  position: absolute;
+  left: -8px;
+  top: 5px;
+}
+
+.explain3 .explain3-button{
+  text-align: center;
+  margin-top: .4rem;
+}
+
+.explain3-button a{
+  display: inline-block;
+  width: 3.4rem;
+}
+.explain3-button img{
+  width: 100%;
+}
+
+.main-one .one-title{
+  top: -1.4rem;
+  right: 0.5rem;
+}
+
+.main-two .two-title{
+  top: -1.4rem;
+  left: 0.5rem;
+}
+
+.main-three .three-title{
+  top: -1.4rem;
+  right: 0.5rem;
+}
+
+
+
+
+
+.main-bottom{
+  position: relative;
+  box-shadow: 0 -4px 40px #E54B3C;
+}
+
+.main-bottom img{
+  width: 100%;
+  display: block;
+  vertical-align: bottom;
+}
