@@ -36,12 +36,20 @@ img{
 }
 
 .main-top .main-one{
-  height: 9.6rem;
+  height: 10rem;
   border: 1px solid #000;
   background: url("./images/one-bg.png") no-repeat;
   background-size: 100% 100%;
   padding: 12px;
 }
+
+@keyframes hamClick {
+  0% { transform: rotateZ(20deg); }
+  50% { transform: rotateZ(40deg); }
+  70% { transform: rotateZ(0deg); }
+  100% { transform: rotateZ(-10deg); }
+}
+
 /*砸金蛋主题*/
 .main-one .times-hint{
   padding-left: .4em;
@@ -54,8 +62,27 @@ img{
 
 .main-one .egg-main{
   height: 38%;
-  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+.egg-main .egg-wrap{
+  flex: 1;
+  margin: 8px 20px 0;
+  position: relative;
+}
+
+.egg-wrap .hammer{
+  position: absolute;
+  right: -20px;
+  top: -10px;
+  width: 60px;
+  animation: hamClick 1s;
+}
+.egg-wrap img{
+  width: 100%;
+}
+
 
 .prize-setting img{
   width: 100%;

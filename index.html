@@ -18,7 +18,33 @@
         <img src="./images/one.png">
       </div>
       <p class="times-hint">今日剩余<span class="red-times">4</span>次</p>
-      <div class="egg-main"></div>
+      <div class="egg-main">
+        <div class="egg-wrap">
+          <!--<img src="./images/hammer.png" class="hammer">-->
+          <div class="gold-egg">
+            <img src="./images/egg.png">
+          </div>
+          <div class="egg-bottom">
+            <img src="./images/egg-buttom.png">
+          </div>
+        </div>
+        <div class="egg-wrap">
+          <div class="gold-egg">
+            <img src="./images/egg.png">
+          </div>
+          <div class="egg-bottom">
+            <img src="./images/egg-buttom.png">
+          </div>
+        </div>
+        <div class="egg-wrap">
+          <div class="gold-egg">
+            <img src="./images/egg.png">
+          </div>
+          <div class="egg-bottom">
+            <img src="./images/egg-buttom.png">
+          </div>
+        </div>
+      </div>
       <div class="prize-setting">
         <img src="./images/egg-rect.png">
       </div>
@@ -72,3 +98,26 @@
 </div>
 </body>
 </html>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(function(){
+    var $hammer = $('<img src="./images/hammer.png" class="hammer">');
+    var isBroken = false;
+    var myTime = null;
+    $('.egg-wrap').click(function(){
+      if(isBroken !== true){
+        isBroken = true;
+        clearTimeout(myTime);
+        $(this).append($hammer);
+        let _this = $(this);
+        setTimeout(function(){
+          _this.find('.gold-egg img').attr('src', './images/egg-broke_03.png');
+          isBroken = false;
+        }, 1000);
+        myTime = setTimeout(function(){
+          _this.find('.hammer').detach();
+        },1200)
+      }
+    })
+  })
+</script>
