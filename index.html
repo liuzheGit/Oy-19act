@@ -25,7 +25,7 @@
     <img src="./images/close-btn.png" class="close-btn">
     <p class="prize-price">20</p>
     <div class="prize-btns">
-      <a href="#" class="award-btn">查看红包</a>
+      <a href="#" class="to-record">查看红包</a>
       <a href="#" class="award-btn">立即使用</a>
     </div>
   </div>
@@ -165,23 +165,43 @@
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script>
   $(function(){
-    $('.dialog-wrap').hide()
+    $('.dialog-wrap').hide();
+
+    var remainTimes = 5, isLogin = true;
     var $hammer = $('<img src="./images/hammer.png" class="hammer">');
     var isBroken = false;
     var myTime = null;
+    $('.times-hint .red-times').html(remainTimes);
+
+    $('.prize-btns .to-record').click(function(e){
+      e.preventDefault();
+      $(this).parents('.get-prize').hide();
+      setTimeout(function(){
+        $('.dialog-wrap.award-record').show();
+      },8)
+    })
+
     $('.egg-wrap').click(function(){
-      if(isBroken !== true){
-        isBroken = true;
-        clearTimeout(myTime);
-        $(this).append($hammer);
-        let _this = $(this);
-        setTimeout(function(){
-          _this.find('.gold-egg img').attr('src', './images/egg-broke_03.png');
-          isBroken = false;
-        }, 1000);
-        myTime = setTimeout(function(){
-          _this.find('.hammer').detach();
-        },1200)
+      if(isLogin === true && remainTimes > 0){
+        if(isBroken !== true){
+          isBroken = true;
+          clearTimeout(myTime);
+          $(this).append($hammer);
+          let _this = $(this);
+          setTimeout(function(){
+            _this.find('.gold-egg img').attr('src', './images/egg-broke_03.png');
+            isBroken = false;
+            remainTimes -= 1;
+            $('.times-hint .red-times').html(remainTimes);
+            $('.dialog-wrap.get-prize').show();
+          }, 1000);
+          // myTime = setTimeout(function(){
+          //   _this.find('.hammer').detach();
+          //   _this.find('.gold-egg img').attr('src', './images/egg.png');
+          // },1200)
+        }
+      }else if(isLogin === false){
+        $('.dialog-wrap.to-login').show();
       }
     });
     $('.explain3-button a').click(function(e){
@@ -190,6 +210,8 @@
     })
     $('.close-btn').click(function(e){
       $(this).parent('.dialog-award').toggleClass('bounceInUp');
+      $('.egg-main .hammer').detach();
+      $('.gold-egg img').attr('src', './images/egg.png');
       setTimeout(()=>{
         $(this).parent('.dialog-award').toggleClass('bounceInUp');
         $(this).parents('.dialog-wrap').hide();
