@@ -40,7 +40,7 @@ a{
 
 .main-top .main-one{
   height: 10rem;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   background: url("./images/one-bg.png") no-repeat;
   background-size: 100% 100%;
   padding: 12px;
@@ -268,14 +268,66 @@ a{
   justify-content: center;
   align-items: center;
 }
-
 .dialog-wrap .dialog-award{
+  position: relative;
+}
+
+.get-success .dialog-award{
   height: 9rem;
   width: 6rem;
   /* border: 1px solid #000; */
   background: url('./images/award-bg.png') no-repeat;
   background-size: 100% 100%;
-  position: relative;
+}
+.get-fail .dialog-award,.to-login .dialog-award{
+  height: 6rem;
+  width: 6rem;
+  background: url('./images/dialog-bg.png') no-repeat;
+  background-size: 100% 100%;
+}
+
+.get-prize .dialog-award{
+  height: 9rem;
+  width: 6rem;
+  background: url('./images/bag-bg.png') no-repeat;
+  background-size: 100% 100%;
+}
+.prize-price{
+  margin-top: 3.8rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #D7910D;
+}
+
+.award-record .dialog-award{
+  height: 9rem;
+  width: 6rem;
+  background: url('./images/record-bg.png') no-repeat;
+  background-size: 100% 100%;
+}
+.award-record .record-words{
+  margin-top: 2.85rem;
+  padding: 0 1rem;
+  color: #DA981C;
+  font-size: 12px;
+}
+.record-words .record-items{
+  height: 3rem;
+  overflow: auto;
+}
+.record-items>div{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 4px;
+}
+
+.get-fail .fail-words,.to-login .fail-words{
+  color: #FFAB0D;
+  text-align: center;
+  margin-top: 2.53rem;
+  font-size: 14px;
 }
 
 .dialog-wrap .close-btn{
@@ -285,7 +337,7 @@ a{
   width: .8rem;
 }
 
-.dialog-btns{
+.dialog-btns,.prize-btns{
   width: 100%;
   text-align: center;
   /* border: 1px solid  green; */
@@ -293,7 +345,8 @@ a{
   bottom: 0.6rem;
 }
 
-.dialog-btns .award-btn{
+/* 弹窗底部按钮 */
+.dialog-btns a{
   display: inline-block;
   width: 60%;
   background: #E5AC40;
@@ -303,4 +356,19 @@ a{
   font-size: .4rem;
   font-weight: 400;
   letter-spacing: 4px;
+}
+.prize-btns{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.prize-btns a{
+  display: inline-block;
+  width: 40%;
+  background: #E5AC40;
+  color: #FFFFFF;
+  padding: 12px 6px;
+  font-size: .24rem;
+  border-radius: 20px;
+  font-weight: 400;
 }

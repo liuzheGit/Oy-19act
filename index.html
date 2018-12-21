@@ -11,11 +11,65 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<div class="dialog-wrap">
+<div class="dialog-wrap get-success">
   <div class="dialog-award animated bounceInUp">
     <img src="./images/close-btn.png" class="close-btn">
     <div class="dialog-btns">
       <a href="#" class="award-btn">去投资</a>
+    </div>
+  </div>
+</div>
+
+<div class="dialog-wrap get-prize">
+  <div class="dialog-award animated bounceInUp">
+    <img src="./images/close-btn.png" class="close-btn">
+    <p class="prize-price">20</p>
+    <div class="prize-btns">
+      <a href="#" class="award-btn">查看红包</a>
+      <a href="#" class="award-btn">立即使用</a>
+    </div>
+  </div>
+</div>
+
+<div class="dialog-wrap get-fail">
+  <div class="dialog-award animated bounceInUp">
+    <img src="./images/close-btn.png" class="close-btn">
+    <p class="fail-words">您已获得此红包!</p>
+    <div class="dialog-btns">
+      <a href="#" class="ok-btn">确定</a>
+    </div>
+  </div>
+</div>
+<div class="dialog-wrap to-login">
+  <div class="dialog-award animated bounceInUp">
+    <img src="./images/close-btn.png" class="close-btn">
+    <p class="fail-words">请先登录平台账号!</p>
+    <div class="dialog-btns">
+      <a href="#">立即登录</a>
+    </div>
+  </div>
+</div>
+<div class="dialog-wrap award-record">
+  <div class="dialog-award animated bounceInUp">
+    <img src="./images/close-btn.png" class="close-btn">
+    <div class="record-words">
+      <h3>2019年1月10日</h3>
+      <div class="record-items">
+        <div><span>第一次</span><span>5元现金红包</span></div>
+        <div><span>第二次</span><span>20元现金礼包</span></div>
+        <div><span>第二次</span><span>20元现金礼包</span></div>
+        <div><span>第二次</span><span>20元现金礼包</span></div>
+        <div><span>第二次</span><span>20元现金礼包</span></div>
+        <div><span>第二次</span><span>20元现金礼包</span></div>
+        <div><span>第二次</span><span>20元现金礼包</span></div>
+        <div><span>第二次</span><span>20元现金礼包</span></div>
+        <div><span>第二次</span><span>20元现金礼包</span></div>
+        <div><span>第二次</span><span>20元现金礼包</span></div>
+        <div><span>第二次</span><span>20元现金礼包</span></div>
+      </div>
+    </div>
+    <div class="dialog-btns">
+      <a href="#">立即使用</a>
     </div>
   </div>
 </div>
@@ -111,7 +165,7 @@
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script>
   $(function(){
-    $('.dialog-wrap').hide();
+    $('.dialog-wrap').hide()
     var $hammer = $('<img src="./images/hammer.png" class="hammer">');
     var isBroken = false;
     var myTime = null;
@@ -132,12 +186,21 @@
     });
     $('.explain3-button a').click(function(e){
       e.preventDefault();
-      $('.dialog-wrap').show()
+      $('.get-success').show()
     })
-    $('.close-btn').click(function(){
+    $('.close-btn').click(function(e){
       $(this).parent('.dialog-award').toggleClass('bounceInUp');
       setTimeout(()=>{
         $(this).parent('.dialog-award').toggleClass('bounceInUp');
+        $(this).parents('.dialog-wrap').hide();
+      },100)
+    })
+
+    $('.ok-btn').click(function(e){
+      e.preventDefault();
+      $(this).parents('.dialog-award').toggleClass('bounceInUp');
+      setTimeout(()=>{
+        $(this).parents('.dialog-award').toggleClass('bounceInUp');
         $(this).parents('.dialog-wrap').hide();
       },100)
     })
