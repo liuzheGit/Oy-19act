@@ -167,7 +167,7 @@
 <script>
   $(function(){
     $('.dialog-wrap').hide();
-    var remainTimes = 5, isLogin = false, isReach = true, isGet = false;
+    var remainTimes = 5, isLogin = true, isReach = true, isGet = false;
     var $hammer = $('<img src="./images/hammer.png" class="hammer">');
     var isBroken = false;
     var myTime = null;
@@ -205,7 +205,7 @@
           $(this).append($hammer);
           let _this = $(this);
           setTimeout(function(){
-            _this.find('.gold-egg img').attr('src', './images/egg-broke_03.png');
+            _this.find('.gold-egg img').attr('src', './images/egg-broke.png');
             isBroken = false;
             remainTimes -= 1;
             var result = getPrize();
