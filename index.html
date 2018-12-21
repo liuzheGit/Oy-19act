@@ -23,7 +23,8 @@
 <div class="dialog-wrap get-prize">
   <div class="dialog-award animated bounceInUp">
     <img src="./images/close-btn.png" class="close-btn">
-    <p class="prize-price">20</p>
+    <p class="prize-price">5</p>
+    <p class="prize-txt">礼金红包</p>
     <div class="prize-btns">
       <a href="#" class="to-record">查看红包</a>
       <a href="#" class="award-btn">立即使用</a>
@@ -32,7 +33,7 @@
 </div>
 
 <div class="dialog-wrap get-fail">
-  <div class="dialog-award animated bounceInUp">
+  <div class="dialog-award animated wobble">
     <img src="./images/close-btn.png" class="close-btn">
     <p class="fail-words">很遗憾 您暂未到达领取条件!</p>
     <div class="dialog-btns">
@@ -41,7 +42,7 @@
   </div>
 </div>
 <div class="dialog-wrap to-login">
-  <div class="dialog-award animated bounceInUp">
+  <div class="dialog-award animated wobble">
     <img src="./images/close-btn.png" class="close-btn">
     <p class="fail-words">请先登录平台账号!</p>
     <div class="dialog-btns">
@@ -166,7 +167,7 @@
 <script>
   $(function(){
     $('.dialog-wrap').hide();
-    var remainTimes = 5, isLogin = true, isReach = true, isGet = false;
+    var remainTimes = 5, isLogin = false, isReach = true, isGet = false;
     var $hammer = $('<img src="./images/hammer.png" class="hammer">');
     var isBroken = false;
     var myTime = null;
@@ -207,8 +208,18 @@
             _this.find('.gold-egg img').attr('src', './images/egg-broke_03.png');
             isBroken = false;
             remainTimes -= 1;
+            var result = getPrize();
+            if(result === '50'){
+              $('.get-prize .prize-txt').html('现金红包');
+              $('.get-prize .prize-price').html(5)
+            }else{
+              $('.get-prize .prize-txt').html('礼金红包');
+              $('.get-prize .prize-price').html(result)
+            }
+
             $('.times-hint .red-times').html(remainTimes);
             $('.dialog-wrap.get-prize').show();
+        
           }, 1000);
           // myTime = setTimeout(function(){
           //   _this.find('.hammer').detach();
@@ -238,5 +249,24 @@
       },100)
     })
 
+    function getPrize(){
+      var lucks = [5, 70, 15, 10];
+      var items = ['50','5','10','20'];
+      return goodLuck(items, lucks);
+      
+    }
+
+    function goodLuck(obj, luck) {
+      var sum = 0,factor = 0,random = Math.random();
+      for (var i = luck.length - 1; i >= 0; i--) {
+        sum += luck[i];
+      }
+      random *= sum;
+      for (var i = luck.length - 1; i >= 0; i--) {
+        factor += luck[i];
+        if (random <= factor) return obj[i];
+      }
+      return null;
+    }
   })
 </script>

@@ -292,12 +292,18 @@ a{
   background: url('./images/bag-bg.png') no-repeat;
   background-size: 100% 100%;
 }
-.prize-price{
+.get-prize .prize-price{
   margin-top: 3.8rem;
   text-align: center;
   font-size: 1rem;
   font-weight: 600;
   color: #D7910D;
+}
+
+.get-prize .prize-txt{
+  color: #FCD689;
+  text-align: center;
+  margin-top: 0.6rem;
 }
 
 .award-record .dialog-award{
