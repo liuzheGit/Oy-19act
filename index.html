@@ -7,9 +7,18 @@
   <script>
     document.write('<style>html{font-size:'+window.innerWidth / 10+'px;}</style>')
   </script>
+  <link rel="stylesheet" href="./node_modules/animate.css/animate.min.css">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<div class="dialog-wrap">
+  <div class="dialog-award animated bounceInUp">
+    <img src="./images/close-btn.png" class="close-btn">
+    <div class="dialog-btns">
+      <a href="#" class="award-btn">去投资</a>
+    </div>
+  </div>
+</div>
 <div class="main">
   <div class="main-top">
     <div class="top-banner"></div>
@@ -102,6 +111,7 @@
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script>
   $(function(){
+    $('.dialog-wrap').hide();
     var $hammer = $('<img src="./images/hammer.png" class="hammer">');
     var isBroken = false;
     var myTime = null;
@@ -119,6 +129,18 @@
           _this.find('.hammer').detach();
         },1200)
       }
+    });
+    $('.explain3-button a').click(function(e){
+      e.preventDefault();
+      $('.dialog-wrap').show()
     })
+    $('.close-btn').click(function(){
+      $(this).parent('.dialog-award').toggleClass('bounceInUp');
+      setTimeout(()=>{
+        $(this).parent('.dialog-award').toggleClass('bounceInUp');
+        $(this).parents('.dialog-wrap').hide();
+      },100)
+    })
+
   })
 </script>

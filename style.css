@@ -7,7 +7,10 @@ img{
 *,*::after,*::before{
   box-sizing: border-box;
 }
-
+a{
+  text-decoration: none;
+  color: #333;
+}
 .main{
   max-width: 750px;
   margin: 0 auto;
@@ -248,4 +251,56 @@ img{
   width: 100%;
   display: block;
   vertical-align: bottom;
+}
+
+
+
+/* 弹窗 */
+.dialog-wrap{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .3);
+  z-index: 29;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-wrap .dialog-award{
+  height: 9rem;
+  width: 6rem;
+  /* border: 1px solid #000; */
+  background: url('./images/award-bg.png') no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+}
+
+.dialog-wrap .close-btn{
+  position: absolute;
+  right: -0.4rem;
+  top: 1.3rem;
+  width: .8rem;
+}
+
+.dialog-btns{
+  width: 100%;
+  text-align: center;
+  /* border: 1px solid  green; */
+  position: absolute;
+  bottom: 0.6rem;
+}
+
+.dialog-btns .award-btn{
+  display: inline-block;
+  width: 60%;
+  background: #E5AC40;
+  color: #FFFFFF;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: .4rem;
+  font-weight: 400;
+  letter-spacing: 4px;
 }
